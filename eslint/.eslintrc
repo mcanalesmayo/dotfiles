@@ -1,0 +1,13 @@
+{
+  "extends": [
+    "adidas-es5"
+  ],
+  "rules": {
+    "strict": [0, "global"],
+    "no-else-return": [0, "global"],
+    "no-undefined": [0, "global"],
+    "no-invalid-this": [0, "global"],
+    "array-bracket-newline": [0, "global"],
+    "max-len": [0, "0"]
+  }
+}
