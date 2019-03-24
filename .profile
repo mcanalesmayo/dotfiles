@@ -1,3 +1,11 @@
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_171.jdk/Contents/Home
+export PATH=$PATH:/Users/canalmar/Tools/apache-ant-1.10.4/bin:/Users/canalmar/Tools/apache-maven-3.5.4/bin:/Users/canalmar/Tools/gradle-4.8.1/bin
+
+# Setting PATH for Python 3.7
+# The original version is saved in .profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
+export PATH
+
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 
@@ -34,3 +42,8 @@ function commit-push-all() {
 	git commit -m "$1"
 	git push
 }
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
