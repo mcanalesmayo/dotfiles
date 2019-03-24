@@ -1,9 +1,13 @@
 #!/bin/bash
 
+# Config files
+cp terminal/.profile terminal/.bash_profile ~/
+mkdir ~/.config
+mkdir ~/.config/powerline
+cp terminal/powerline/config.json ~/.config/powerline/
 cp git/.gitconfig ~/
 cp vim/.vimrc ~/
 cp eslint/.eslintrc ~/
-cp terminal/powerline/config.json ~/.config/powerline/
 
 # Node and JS utilities
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
