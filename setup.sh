@@ -4,7 +4,9 @@
 cp terminal/.profile terminal/.bash_profile ~/
 mkdir ~/.config
 mkdir ~/.config/powerline
+mkdir ~/.config/powerline/colorschemes
 cp terminal/powerline/config.json ~/.config/powerline/
+cp terminal/powerline/colorschemes/light.json ~/.config/powerline/colorschemes
 cp git/.gitconfig ~/
 cp vim/.vimrc ~/
 cp eslint/.eslintrc ~/
