@@ -11,7 +11,7 @@ Plugin 'Yggdroot/indentLine' " For displaying indentation levels (code blocks)
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-"Plugin 'pangloss/vim-javascript'
+Plugin 'pangloss/vim-javascript'
 call vundle#end()
 filetype plugin indent on
 
