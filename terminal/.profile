@@ -9,9 +9,9 @@ export PATH
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 
-alias ll='ls -l'
-alias lla='ls -la'
-alias llaf='ls -lap | grep -v /'
+alias ll='ls -lh'
+alias lla='ls -lah'
+alias llaf='ls -laph | grep -v /'
 
 function git() {
   if [[ $1 == "log" ]]; then
