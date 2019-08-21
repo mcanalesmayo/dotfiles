@@ -20,6 +20,18 @@ function git() {
     command git branch -vv "${@:2}"
   elif [[ $1 == "status" ]]; then
     command git status --short -b "${@:2}"
+  elif [[ $1 == "commit-push-all" ]]; then
+    # Prevent using master and develop branches for normal commits
+    BRANCH=$(git symbolic-ref --short HEAD)
+    echo "$BRANCH"
+    if [[ "$BRANCH" == "master" ]] || [[ "$BRANCH" == "develop" ]] || [[ "$BRANCH" == release/* ]]
+    then
+      echo "You are on branch $BRANCH, which should only be updated via pull request"
+      return
+    fi
+    git add -A
+    git commit -m "$1"
+    git push
   else
     command git "$@"
   fi
@@ -27,20 +39,6 @@ function git() {
 
 function tree() {
   find "$1" -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
-}
-
-function commit-push-all() {
-  # Prevent using master and develop branches for normal commits
-  BRANCH=$(git symbolic-ref --short HEAD)
-  echo "$BRANCH"
-  if [[ "$BRANCH" == "master" ]] || [[ "$BRANCH" == "develop" ]] || [[ "$BRANCH" == release/* ]]
-  then
-    echo "You are on branch $BRANCH, which should only be updated via pull request"
-    return
-  fi
-  git add -A
-  git commit -m "$1"
-  git push
 }
 
 export NVM_DIR="$HOME/.nvm"
