@@ -41,6 +41,14 @@ function tree() {
   find "$1" -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
 }
 
+function docker() {
+  if [[ $1 == "ip-of" ]]; then
+    command docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' "${@:2}"
+  else
+    command docker "$@"
+  fi
+}
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
