@@ -30,7 +30,7 @@ function git() {
       return
     fi
     git add -A
-    git commit -m "$1"
+    git commit -m "$2"
     git push
   else
     command git "$@"
