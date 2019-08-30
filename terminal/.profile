@@ -1,10 +1,9 @@
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_171.jdk/Contents/Home
-export PATH=$PATH:/Users/canalmar/Tools/apache-ant-1.10.4/bin:/Users/canalmar/Tools/apache-maven-3.5.4/bin:/Users/canalmar/Tools/gradle-4.8.1/bin
+#export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.4.jdk/Contents/Home
+#export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_221.jdk/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home
+export PATH=$PATH:/usr/local/opt/python/libexec/bin:/Users/marcos.canales/tools/apache-maven/bin:/Users/marcos.canales/tools/gradle/bin
 
-# Setting PATH for Python 3.7
-# The original version is saved in .profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
-export PATH
+export HISTTIMEFORMAT='%F %T '
 
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
