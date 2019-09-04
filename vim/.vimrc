@@ -24,6 +24,8 @@ augroup javascript_folding
     au FileType javascript setlocal foldmethod=syntax
 augroup END
 
+au BufNewFile,BufRead *.Jenkinsfile,*.groovy,*.gradle setf groovy
+
 " Use 2 spaces as tab
 filetype plugin indent on
 " On pressing tab, insert 2 spaces
