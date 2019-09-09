@@ -31,6 +31,9 @@ function git() {
     git add -A
     git commit -m "$2"
     git push
+  elif [[ $1 == "last-diff" ]]; then
+    LAST_COMMIT=$(git rev-parse HEAD)
+    git diff $LAST_COMMIT~ $LAST_COMMIT
   else
     command git "$@"
   fi
