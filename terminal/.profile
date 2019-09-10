@@ -19,21 +19,9 @@ function git() {
     command git branch -vv "${@:2}"
   elif [[ $1 == "status" ]]; then
     command git status --short -b "${@:2}"
-  elif [[ $1 == "commit-push-all" ]]; then
-    # Prevent using master and develop branches for normal commits
-    BRANCH=$(git symbolic-ref --short HEAD)
-    echo "$BRANCH"
-    if [[ "$BRANCH" == "master" ]] || [[ "$BRANCH" == "develop" ]] || [[ "$BRANCH" == release/* ]]
-    then
-      echo "You are on branch $BRANCH, which should only be updated via pull request"
-      return
-    fi
-    git add -A
-    git commit -m "$2"
-    git push
   elif [[ $1 == "last-diff" ]]; then
     LAST_COMMIT=$(git rev-parse HEAD)
-    git diff $LAST_COMMIT~ $LAST_COMMIT
+    command git diff $LAST_COMMIT~ $LAST_COMMIT
   else
     command git "$@"
   fi
