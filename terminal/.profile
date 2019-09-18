@@ -18,7 +18,8 @@ function git() {
   elif [[ $1 == "branch" ]]; then
     command git branch -vv "${@:2}"
   elif [[ $1 == "status" ]]; then
-    command git status --short -b "${@:2}"
+    git log -1 --format="%C(magenta)%h %Cgreen%ad%Cred%d %Creset%s%Cblue [%cn]" --decorate --date=short 2>&1
+    command git status --short "${@:2}"
   elif [[ $1 == "last-diff" ]]; then
     LAST_COMMIT=$(git rev-parse HEAD)
     command git diff $LAST_COMMIT~ $LAST_COMMIT
@@ -27,6 +28,7 @@ function git() {
   fi
 }
 
+# Overload if not present
 function tree() {
   find "$1" -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
 }
@@ -37,6 +39,21 @@ function docker() {
   else
     command docker "$@"
   fi
+}
+
+# Custom func to switch current Java environment to another version
+function switch-java-v-to() {
+    if [[ $1 == "8" ]]; then
+        export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_221.jdk/Contents/Home
+    elif [[ $1 == "11" ]]; then
+        export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home
+    else
+        echo "Unrecognized version. Available versions: [ 8, 11 ]"
+        return
+    fi
+
+    NEW_JAVA_VERSION=$(java -version 2>&1)
+    echo -e "Changed to the following version:\n\033[0;32m$NEW_JAVA_VERSION\033[0m"
 }
 
 export NVM_DIR="$HOME/.nvm"
