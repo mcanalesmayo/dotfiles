@@ -14,7 +14,7 @@ alias llaf='ls -laph | grep -v /'
 
 function git() {
   if [[ $1 == "log" ]]; then
-    command git log --pretty=format:"%C(magenta)%h %Cgreen%ad%Cred%d %Creset%s%Cblue [%cn]" --decorate --date=short "${@:2}"
+    command git log --pretty=format:"%C(magenta)%h %Cgreen%ad %C(yellow)%p%Cred%d %Creset%s%Cblue [%cn]" --decorate --date=short "${@:2}"
   elif [[ $1 == "branch" ]]; then
     command git branch -vv "${@:2}"
   elif [[ $1 == "status" ]]; then
