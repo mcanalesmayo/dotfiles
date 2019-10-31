@@ -17,7 +17,7 @@ function git() {
     command git log --pretty=format:"%C(magenta)%h %Cgreen%ad %C(yellow)%p%Cred%d %Creset%s%Cblue [%cn]" --decorate --date=short "${@:2}"
   elif [[ $1 == "branch" ]]; then
     command git branch -vv "${@:2}"
-  elif [[ $1 == "status" ]]; then
+  elif [[ $1 == "status" || $1 == "sts" ]]; then
     git log -1 --format="%C(magenta)%h %Cgreen%ad%Cred%d %Creset%s%Cblue [%cn]" --decorate --date=short 2>&1
     command git status --short "${@:2}"
   elif [[ $1 == "last-diff" ]]; then
