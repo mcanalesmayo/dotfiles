@@ -23,6 +23,8 @@ function git() {
   elif [[ $1 == "last-diff" ]]; then
     LAST_COMMIT=$(git rev-parse HEAD)
     command git diff $LAST_COMMIT~ $LAST_COMMIT
+  elif [[ $1 == "compact-diff" ]]; then
+    git diff --compact-summary "${@:2}"
   else
     command git "$@"
   fi
